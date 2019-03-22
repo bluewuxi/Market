@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textDisplay = new System.Windows.Forms.TextBox();
             this.buttonA = new System.Windows.Forms.Button();
             this.buttonB = new System.Windows.Forms.Button();
             this.buttonC = new System.Windows.Forms.Button();
@@ -37,14 +37,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textDisplay
             // 
-            this.textBox1.Location = new System.Drawing.Point(-3, 62);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(802, 310);
-            this.textBox1.TabIndex = 0;
+            this.textDisplay.Location = new System.Drawing.Point(-3, 62);
+            this.textDisplay.Multiline = true;
+            this.textDisplay.Name = "textDisplay";
+            this.textDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textDisplay.Size = new System.Drawing.Size(802, 310);
+            this.textDisplay.TabIndex = 0;
             // 
             // buttonA
             // 
@@ -117,9 +117,10 @@
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonB);
             this.Controls.Add(this.buttonA);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textDisplay);
             this.Name = "Console";
             this.Text = "Console";
+            this.Load += new System.EventHandler(this.Console_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,7 +128,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textDisplay;
         private System.Windows.Forms.Button buttonA;
         private System.Windows.Forms.Button buttonB;
         private System.Windows.Forms.Button buttonC;

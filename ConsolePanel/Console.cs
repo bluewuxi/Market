@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarketLib;
 
 namespace ConsolePanel
 {
     public partial class Console : Form
     {
+        PointOfSaleTerminal terminal = new PointOfSaleTerminal();
+
         public Console()
         {
             InitializeComponent();
+        }
+
+        private void Console_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
