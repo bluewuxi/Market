@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketLib", "Market\MarketLib.csproj", "{11304AD9-A5F3-426F-8DCF-BF1415922CAE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibTest", "LibTest\LibTest.csproj", "{F76AF6E3-3920-4802-B40A-2E480ECB14E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePanel", "ConsolePanel\ConsolePanel.csproj", "{D9F6AE71-188A-44B0-9E61-F7365AEF6A05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11304AD9-A5F3-426F-8DCF-BF1415922CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11304AD9-A5F3-426F-8DCF-BF1415922CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11304AD9-A5F3-426F-8DCF-BF1415922CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11304AD9-A5F3-426F-8DCF-BF1415922CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76AF6E3-3920-4802-B40A-2E480ECB14E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76AF6E3-3920-4802-B40A-2E480ECB14E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76AF6E3-3920-4802-B40A-2E480ECB14E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76AF6E3-3920-4802-B40A-2E480ECB14E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F6AE71-188A-44B0-9E61-F7365AEF6A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F6AE71-188A-44B0-9E61-F7365AEF6A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F6AE71-188A-44B0-9E61-F7365AEF6A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F6AE71-188A-44B0-9E61-F7365AEF6A05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F841EE65-BE95-4311-BC54-0AC38C341418}
+	EndGlobalSection
+EndGlobal
