@@ -7,14 +7,14 @@ namespace Market.Lib
 {
     public class CartItemRepository
     {
-        public IList<CartItemEntity> items { get; protected set; }
+        public IDictionary<string, CartItemEntity> items { get; protected set; }
 
         public CartItemRepository()
         {
-            items = new List<CartItemEntity>();
+            items = new Dictionary<string, CartItemEntity>();
         }
 
-        public IList<CartItemEntity> Empty()
+        public IDictionary<string, CartItemEntity> Empty()
         {
             items.Clear();
             return items;
@@ -22,13 +22,13 @@ namespace Market.Lib
 
         public CartItemEntity Add(string itemCode)
         {
-            var searchItem = items.Where(u => u.Code == itemCode).Select(p => p).SingleOrDefault();
+            var searchItem = items.Where(u => u.Key == itemCode).Select(p => p.Value).SingleOrDefault();
 
             // If the product is already in items, simply increase the quantity. Otherwise add a new item.
             if (searchItem == null)
             {
                 var newItem = new CartItemEntity(itemCode);
-                items.Add(newItem);
+                items.Add(newItem.Code, newItem);
                 return newItem;
             }
             else

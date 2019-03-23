@@ -7,14 +7,14 @@ namespace Market.Lib
 {
     public class PriceRepository
     {
-        public IList<PriceEntity> priceList { get; protected set; }
+        public IDictionary<string, PriceEntity> priceList { get; protected set; }
 
         public PriceRepository()
         {
-            priceList = new List<PriceEntity>();
+            priceList = new Dictionary<string, PriceEntity>();
         }
 
-        public IList<PriceEntity> Empty()
+        public IDictionary<string, PriceEntity> Empty()
         {
             priceList.Clear();
             return priceList;
@@ -28,7 +28,7 @@ namespace Market.Lib
             if (searchPricing == null)
             {
                 var newPricing = new PriceEntity(code, unitPrice, volume, volumePrice);
-                priceList.Add(newPricing);
+                priceList.Add(code, newPricing);
                 return newPricing;
             }
             else
@@ -42,7 +42,7 @@ namespace Market.Lib
 
         public PriceEntity QueryPrice(string code)
         {
-            return priceList.Where(u => u.Code == code).Select(p => p).SingleOrDefault();
+            return priceList.Where(u => u.Key == code).Select(p => p.Value).SingleOrDefault();
         }
 
     }

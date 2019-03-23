@@ -46,7 +46,7 @@ namespace Market.Lib
             decimal total = 0m;
             foreach(var item in _cart.items)
             {
-                total += _priceTable.QueryPrice(item.Code).Caculate(item.Count);
+                total += _priceTable.QueryPrice(item.Key).Caculate(item.Value.Count);
             }
             return total;
         }

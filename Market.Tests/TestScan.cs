@@ -36,7 +36,7 @@ namespace Market.Tests
                 Assert.AreEqual(terminal.ScanProduct(code).CurrentItem.Code, code, 
                     "Should be able to add an item with pricing setting");
             }
-            Assert.IsTrue(codes.Where(p=> cart.items.Select(i=> i.Code).Contains(p)).Count() == codes.Length,
+            Assert.IsTrue(codes.Where(p=> cart.items.Select(i=> i.Key).Contains(p)).Count() == codes.Length,
                 $"[{codes}] should be accepted and added to cart.");
         }
 
