@@ -33,7 +33,7 @@ namespace Market.Tests
 
             foreach (var code in codes)
             {
-                Assert.AreEqual(terminal.ScanProduct(code).currentItem.Code, code, 
+                Assert.AreEqual(terminal.ScanProduct(code).CurrentItem.Code, code, 
                     "Should be able to add an item with pricing setting");
             }
             Assert.IsTrue(codes.Where(p=> cart.items.Select(i=> i.Code).Contains(p)).Count() == codes.Length,
@@ -51,7 +51,7 @@ namespace Market.Tests
             PrivateObject po = new PrivateObject(terminal);
             CartItemRepository cart = (CartItemRepository)po.GetField("_cart");
 
-            var result = terminal.ScanProduct(code).currentItem;
+            var result = terminal.ScanProduct(code).CurrentItem;
             Assert.IsTrue(result == null && cart.items.Count == 0,
                 $"[{code}] should not be prime,since no pricing for it");
         }
@@ -67,7 +67,7 @@ namespace Market.Tests
             PrivateObject po = new PrivateObject(terminal);
             CartItemRepository cart = (CartItemRepository)po.GetField("_cart");
 
-            var result = terminal.ScanProduct(code).currentItem;
+            var result = terminal.ScanProduct(code).CurrentItem;
             Assert.IsTrue(result==null && cart.items.Count==0, 
                 $"[{code}] should not be accepted because of empty price table");
         }

@@ -9,7 +9,6 @@ namespace Market.Tests
     [TestClass]
     public class TestSampleCases
     {
-        PrivateObject po;
         PointOfSaleTerminal terminal;
 
         public TestSampleCases()

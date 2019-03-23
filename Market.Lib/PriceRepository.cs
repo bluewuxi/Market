@@ -23,6 +23,8 @@ namespace Market.Lib
         public PriceEntity SetSinglePricing(string code, decimal unitPrice, int? volume = null, decimal? volumePrice = null)
         {
             var searchPricing = QueryPrice(code);
+
+            // If no pricing record for the product then create one, otherwise modify the record.
             if (searchPricing == null)
             {
                 var newPricing = new PriceEntity(code, unitPrice, volume, volumePrice);

@@ -14,6 +14,8 @@ namespace ConsolePanel
     public partial class CheckConsole : Form
     {
         PointOfSaleTerminal terminal = new PointOfSaleTerminal();
+        string outputBuffer = "";
+        decimal total = 0m;
 
         public CheckConsole()
         {
@@ -31,29 +33,69 @@ namespace ConsolePanel
                 new PriceEntity("D", 0.75m),
             };
             terminal.SetPricing(priceTable);
+
+            Reset();
+        }
+
+        private void Output(string message, string footer="", bool reset=false)
+        {
+            if (reset)
+            {
+                textDisplay.Text = "";
+                outputBuffer = "";
+            }
+            if (message == "") return;
+
+            outputBuffer += message + "\r\n";
+            textDisplay.Text = outputBuffer + footer;
+            textDisplay.Select(textDisplay.Text.Length, 0);
+            textDisplay.ScrollToCaret();
+        }
+
+        private void Reset()
+        {
+            terminal.EmptyCart();
+            total = 0m;
+            Output("Ready for scan\t============================", "", true);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            terminal.EmptyCart();
-            textDisplay.Text = "";
+            Reset();
         }
 
         private void buttonScan_Click(object sender, EventArgs e)
         {
             string code =((Button)sender).Text;
             terminal.ScanProduct(code);
-            textDisplay.Text += $"Scan {code} \r\n";
-            textDisplay.Select(textDisplay.Text.Length,0);
-            textDisplay.ScrollToCaret();
+
+            decimal previousTotal = total;
+            total = terminal.CalculateTotal();
+
+            decimal differ = previousTotal + terminal.CurrentItemPricing.UnitPrice - total;
+
+            // The non-zero differ means volume pricing has been applied.
+            // If differ exists, print the discount.
+            if (differ!=0m)
+            {
+                Output($" {code}\t\t\t ${terminal.CurrentItemPricing.UnitPrice} ");
+                Output($" \t{terminal.CurrentItemPricing.Volume} for ${terminal.CurrentItemPricing.VolumePrice}\t-${differ} ",
+                    $"\t------------------------------------\r\n\t\t Total:\t ${total}");
+            }
+            else
+            {
+                Output($" {code}\t\t\t ${terminal.CurrentItemPricing.UnitPrice} ",
+                    $"\t------------------------------------\r\n\t\t Total:\t ${total}");
+            }
+
         }
 
-        private void buttonCaculate_Click(object sender, EventArgs e)
-        {
-            textDisplay.Text += "-----------------------\r\n";
-            textDisplay.Text += "Total: " + terminal.CalculateTotal() + "\r\n";
-            textDisplay.Select(textDisplay.Text.Length, 0);
-            textDisplay.ScrollToCaret();
-        }
+
+        //// Now we caculate at real time.
+        //private void buttonCaculate_Click(object sender, EventArgs e)
+        //{
+        //    Output("-----------------------");
+        //    Output($"Total: ${terminal.CalculateTotal()}" );
+        //}
     }
 }

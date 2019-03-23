@@ -23,6 +23,8 @@ namespace Market.Lib
         public CartItemEntity Add(string itemCode)
         {
             var searchItem = items.Where(u => u.Code == itemCode).Select(p => p).SingleOrDefault();
+
+            // If the product is already in items, simply increase the quantity. Otherwise add a new item.
             if (searchItem == null)
             {
                 var newItem = new CartItemEntity(itemCode);

@@ -25,7 +25,7 @@ namespace Market.Lib
             if (Volume == null || VolumePrice == null) return UnitPrice * itemCount;
 
             int packageCount = (int)(itemCount / Volume);
-            return (decimal)(UnitPrice * (itemCount - packageCount * Volume) + packageCount * VolumePrice);
+            return (decimal)(UnitPrice * (itemCount % Volume) + packageCount * VolumePrice);
         }
     }
 }

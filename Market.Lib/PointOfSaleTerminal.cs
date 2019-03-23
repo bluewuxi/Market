@@ -5,7 +5,8 @@ namespace Market.Lib
 {
     public class PointOfSaleTerminal
     {
-        public CartItemEntity currentItem { get; protected set; }
+        public CartItemEntity CurrentItem { get; protected set; }
+        public PriceEntity CurrentItemPricing { get; protected set; }
         PriceRepository _priceTable;
         CartItemRepository _cart;
 
@@ -13,7 +14,8 @@ namespace Market.Lib
         {
             _priceTable = new PriceRepository();
             _cart = new CartItemRepository();
-            currentItem = null;
+            CurrentItem = null;
+            CurrentItemPricing = null;
         }
 
         public PointOfSaleTerminal SetPricing(IList<PriceEntity> priceList)
@@ -28,7 +30,14 @@ namespace Market.Lib
 
         public PointOfSaleTerminal ScanProduct(string code)
         {
-            if (_priceTable.QueryPrice(code) != null) currentItem =_cart.Add(code);
+            var pricing = _priceTable.QueryPrice(code);
+
+            // Only add the product if it has price info.
+            if (pricing != null)
+            {
+                CurrentItem = _cart.Add(code);
+                CurrentItemPricing = pricing;
+            }
             return this;
         }
 
@@ -45,7 +54,8 @@ namespace Market.Lib
         public PointOfSaleTerminal EmptyCart()
         {
             _cart.Empty();
-            currentItem = null;
+            CurrentItem = null;
+            CurrentItemPricing = null;
             return this;
         }
     }
