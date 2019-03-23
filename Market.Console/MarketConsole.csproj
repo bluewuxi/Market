@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console.cs">
+    <Compile Include="CheckConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Console.Designer.cs">
-      <DependentUpon>Console.cs</DependentUpon>
+    <Compile Include="CheckConsole.Designer.cs">
+      <DependentUpon>CheckConsole.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Console.resx">
-      <DependentUpon>Console.cs</DependentUpon>
+    <EmbeddedResource Include="CheckConsole.resx">
+      <DependentUpon>CheckConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,8 +80,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Market\MarketLib.csproj">
-      <Project>{11304ad9-a5f3-426f-8dcf-bf1415922cae}</Project>
+    <ProjectReference Include="..\Market.Lib\MarketLib.csproj">
+      <Project>{2f436c4b-0c3e-4071-9b34-890e6131528d}</Project>
       <Name>MarketLib</Name>
     </ProjectReference>
   </ItemGroup>

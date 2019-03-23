@@ -16,7 +16,7 @@ namespace ConsolePanel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Console());
+            Application.Run(new CheckConsole());
         }
     }
 }

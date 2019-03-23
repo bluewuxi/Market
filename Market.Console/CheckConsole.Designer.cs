@@ -1,6 +1,6 @@
 ﻿namespace ConsolePanel
 {
-    partial class Console
+    partial class CheckConsole
     {
         /// <summary>
         /// Required designer variable.
@@ -34,91 +34,104 @@
             this.buttonC = new System.Windows.Forms.Button();
             this.buttonD = new System.Windows.Forms.Button();
             this.buttonCaculate = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textDisplay
             // 
-            this.textDisplay.Location = new System.Drawing.Point(-3, 62);
+            this.textDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textDisplay.Location = new System.Drawing.Point(3, 4);
             this.textDisplay.Multiline = true;
             this.textDisplay.Name = "textDisplay";
             this.textDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textDisplay.Size = new System.Drawing.Size(802, 310);
+            this.textDisplay.Size = new System.Drawing.Size(318, 291);
             this.textDisplay.TabIndex = 0;
             // 
             // buttonA
             // 
             this.buttonA.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonA.Location = new System.Drawing.Point(19, 420);
+            this.buttonA.Location = new System.Drawing.Point(3, 301);
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(75, 51);
             this.buttonA.TabIndex = 1;
             this.buttonA.Text = "A";
             this.buttonA.UseVisualStyleBackColor = true;
+            this.buttonA.Click += new System.EventHandler(this.buttonScan_Click);
             // 
             // buttonB
             // 
             this.buttonB.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonB.Location = new System.Drawing.Point(116, 420);
+            this.buttonB.Location = new System.Drawing.Point(84, 301);
             this.buttonB.Name = "buttonB";
             this.buttonB.Size = new System.Drawing.Size(75, 51);
             this.buttonB.TabIndex = 2;
             this.buttonB.Text = "B";
             this.buttonB.UseVisualStyleBackColor = true;
+            this.buttonB.Click += new System.EventHandler(this.buttonScan_Click);
             // 
             // buttonC
             // 
             this.buttonC.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonC.Location = new System.Drawing.Point(212, 420);
+            this.buttonC.Location = new System.Drawing.Point(165, 301);
             this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(75, 51);
             this.buttonC.TabIndex = 3;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
+            this.buttonC.Click += new System.EventHandler(this.buttonScan_Click);
             // 
             // buttonD
             // 
             this.buttonD.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonD.Location = new System.Drawing.Point(310, 420);
+            this.buttonD.Location = new System.Drawing.Point(246, 301);
             this.buttonD.Name = "buttonD";
             this.buttonD.Size = new System.Drawing.Size(75, 51);
             this.buttonD.TabIndex = 4;
             this.buttonD.Text = "D";
             this.buttonD.UseVisualStyleBackColor = true;
+            this.buttonD.Click += new System.EventHandler(this.buttonScan_Click);
             // 
             // buttonCaculate
             // 
+            this.buttonCaculate.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.buttonCaculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonCaculate.Location = new System.Drawing.Point(438, 420);
+            this.buttonCaculate.ForeColor = System.Drawing.Color.ForestGreen;
+            this.buttonCaculate.Location = new System.Drawing.Point(84, 358);
             this.buttonCaculate.Name = "buttonCaculate";
-            this.buttonCaculate.Size = new System.Drawing.Size(137, 51);
+            this.buttonCaculate.Size = new System.Drawing.Size(237, 51);
             this.buttonCaculate.TabIndex = 5;
             this.buttonCaculate.Text = "Caculate";
-            this.buttonCaculate.UseVisualStyleBackColor = true;
+            this.buttonCaculate.UseVisualStyleBackColor = false;
+            this.buttonCaculate.Click += new System.EventHandler(this.buttonCaculate_Click);
             // 
-            // button1
+            // buttonReset
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(590, 420);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 51);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "AC";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonReset.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonReset.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonReset.Location = new System.Drawing.Point(3, 358);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 51);
+            this.buttonReset.TabIndex = 6;
+            this.buttonReset.Text = "AC";
+            this.buttonReset.UseVisualStyleBackColor = false;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
-            // Console
+            // CheckConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 606);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(325, 413);
+            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonCaculate);
             this.Controls.Add(this.buttonD);
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonB);
             this.Controls.Add(this.buttonA);
             this.Controls.Add(this.textDisplay);
-            this.Name = "Console";
+            this.MaximizeBox = false;
+            this.Name = "CheckConsole";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Console";
             this.Load += new System.EventHandler(this.Console_Load);
             this.ResumeLayout(false);
@@ -134,7 +147,7 @@
         private System.Windows.Forms.Button buttonC;
         private System.Windows.Forms.Button buttonD;
         private System.Windows.Forms.Button buttonCaculate;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
 
